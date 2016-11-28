@@ -9,7 +9,7 @@ angular.module('wisecats.factories', [])
     })
     .then(function (resp) {
       console.log('Images resp: ',resp)
-      return resp.body;
+      return resp.data;
     });
   };
 
@@ -20,7 +20,7 @@ angular.module('wisecats.factories', [])
     })
     .then(function (resp) {
       console.log('Quotes resp: ',resp)
-      return resp.body.quoteText;
+      return resp.data.quoteText;
     });
   };
 
