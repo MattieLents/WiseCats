@@ -5,7 +5,7 @@ angular.module('wisecats.factories', [])
   var getImage = function () {
     return $http({
       method: 'GET',
-      url: 'http://thecatapi.com/api/images/get'
+      url: 'https://thecatapi.com/api/images/get'
     })
     .then(function (resp) {
       console.log('Images resp: ',resp)
@@ -16,7 +16,7 @@ angular.module('wisecats.factories', [])
   var getQuote = function () {
     return $http({
       method: 'GET',
-      url: 'http://api.forismatic.com/api/1.0/get?method=getQuote&format=json&lang=en'
+      url: 'https://api.forismatic.com/api/1.0/get?method=getQuote&format=json&lang=en'
     })
     .then(function (resp) {
       console.log('Quotes resp: ',resp)
