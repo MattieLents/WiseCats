@@ -6,7 +6,9 @@ var app = express();
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname + '/../client')));
 
-app.listen(3000);
-console.log('listening on port 3000')
+var port = process.env.PORT || 3000;
+
+app.listen(port);
+console.log('Server now listening on port ' + port);
 
 module.exports = app;
