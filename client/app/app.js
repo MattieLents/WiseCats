@@ -1,5 +1,6 @@
 angular.module('wisecats', [
   'wisecats.wisecat',
+  'wisecats.factories',
   'ngRoute'
 ])
 .config(function ($routeProvider) {
@@ -7,5 +8,5 @@ angular.module('wisecats', [
     .when('/', {
       templateUrl: 'app/wisecat/wisecat.html',
       controller: 'WiseCatController'
-    })
+    });
 })

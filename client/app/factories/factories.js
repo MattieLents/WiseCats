@@ -1,6 +1,6 @@
-angular.module('shortly.factories', [])
+angular.module('wisecats.factories', [])
 
-.factory('Images', function ($http) {
+.factory('MakeCats', function ($http) {
 
   var getImage = function () {
     return $http({
@@ -8,17 +8,10 @@ angular.module('shortly.factories', [])
       url: 'http://thecatapi.com/api/images/get'
     })
     .then(function (resp) {
+      console.log('Images resp: ',resp)
       return resp.body;
     });
   };
-
-
-  return {
-    getImage: getImage,
-  };
-})
-
-.factory('Quotes', function ($http) {
 
   var getQuote = function () {
     return $http({
@@ -26,12 +19,14 @@ angular.module('shortly.factories', [])
       url: 'http://api.forismatic.com/api/1.0/get?method=getQuote&format=json&lang=en'
     })
     .then(function (resp) {
-      return resp.body;
+      console.log('Quotes resp: ',resp)
+      return resp.body.quoteText;
     });
   };
 
 
   return {
-    getQuote: getQuote,
+    getImage: getImage,
+    getQuote: getQuote
   };
 })

@@ -1,12 +1,12 @@
 angular.module('wisecats.wisecat', [])
 
-.controller('WiseCatController', function ($scope, Links) {
+.controller('WiseCatController', function ($scope, MakeCats) {
 
   $scope.data = {};
 
   var getCat = function () {
-    Images.getImage()
-      .then(function (data) {
+    MakeCats.getImage()
+      .then(function (image) {
         $scope.data.image = image;
       })
       .catch(function (error) {
@@ -14,9 +14,9 @@ angular.module('wisecats.wisecat', [])
       });
   };
   var getQuote = function () {
-    Quotes.getQuote()
+    MakeCats.getQuote()
       .then(function (quote) {
-        $scope.data.quote = [DATAQUOTE];
+        $scope.data.quote = quote;
       })
       .catch(function (error) {
         console.error(error);
