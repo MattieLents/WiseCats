@@ -1,9 +1,9 @@
 {
-  "name": "WiseCats",
+  "name": "wisecats",
   "version": "1.1.0",
   "description": "Glean Wisdom from Wise Cats",
   "author": "Mattie Lents <mattielents@gmail.com>",
-  "license": "UNLICENSED",
+  "license": "MIT",
   "engines": {
     "node": ">=4.0.0"
   },
@@ -15,5 +15,19 @@
     "express": "^4.4.5",
     "mongoose": "^4.1.0",
     "request": "^2.36.0"
-  }
+  },
+  "main": "server.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MattieLents/WiseCats.git"
+  },
+  "bugs": {
+    "url": "https://github.com/MattieLents/WiseCats/issues"
+  },
+  "homepage": "https://github.com/MattieLents/WiseCats#readme"
 }
