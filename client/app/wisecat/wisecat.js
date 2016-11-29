@@ -10,6 +10,7 @@ angular.module('wisecats.wisecat', [])
       MakeCats.getPic();
     })
     .then(function(yay) {
+      console.log('yay: ',yay);
       $scope.catPic = yay;
     })
     .catch(function(nooo) {

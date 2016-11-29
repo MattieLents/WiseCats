@@ -26,18 +26,19 @@ app.get('/api/quote', function(req, res) {
 	})
 })
 
-// app.get('/api/image', function(req, res) {
-//   // var imgSource = req.imgSource;
-//   // console.log('imgSource: ',imgSource;)
-//   console.log('req: ',req)
-//   console.log('req arrived');
-//   // request("http://25.media.tumblr.com/tumblr_luyd14FR3s1qbef7co1_1280.jpg", function (error, response, body) {
-// 	 //  if (!error && response.statusCode == 200) {
-// 	 //    console.log(body)
-// 	  	res.sendStatus(200);
-// 	  // }
-// 	})
-// })
+app.get('/api/image', function(req, res) {
+  var imgSource = req.query.imgSource;
+  console.log('req: ',req.query.imgSource)
+  console.log('imgSource: ',imgSource);
+  // console.log('req: ',req)
+  // console.log('req arrived');
+  request(imgSource, function (error, response, body) {
+	  if (!error && response.statusCode == 200) {
+	    console.log(body)
+	  	res.send(response.statusCode);
+	  }
+	})
+})
 
 
 

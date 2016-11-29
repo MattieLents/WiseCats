@@ -13,20 +13,21 @@ angular.module('wisecats.factories', [])
       var imgSource = catHTML.data.match(/src="(http.*[\.jpg|\.png|\.gif])/i)[1];
       return imgSource;
     })
-    // .then(function (imgSource) {
-    //   return $http({
-    //     method: 'GET',
-    //     url: '/api/image',
-    //     imgSource: imgSource
-    //   })
-    // })
-    // .then(function (res) {
-    //   console.log('res: ',res);
-    //   // if (res.statusCode === 200) {
-    //   //   return res.
-    //   // }
-    //   return res;
-    // })
+    .then(function (imgSource) {
+      return $http({
+        method: 'GET',
+        url: '/api/image',
+        params: {imgSource: imgSource}
+      })
+    })
+    .then(function (res) {
+      console.log('res: ',res);
+      console.log('config: ',res.config.imgSource);
+      if (res.status === 200) {
+        console.log('fromgetPic: ',res.config.imgSource)
+        return res.config.params.imgSource;
+      }
+    })
     .catch(function (err) {
       console.log(err);
       return "//16749-presscdn-0-94.pagely.netdna-cdn.com/wp-content/uploads/2016/09/Hotel-Cat-weight-Stru_Libb-1024x544-670x0-c-default.jpg";
