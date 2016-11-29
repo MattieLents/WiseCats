@@ -8,6 +8,8 @@ app.use(express.static(path.join(__dirname + '/../client')));
 
 var port = process.env.PORT || 3000;
 
+// process.env.example = stuff
+
 app.listen(port);
 console.log('Server now listening on port ' + port);
 

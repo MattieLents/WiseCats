@@ -16,7 +16,8 @@ angular.module('wisecats.factories', [])
   var getQuote = function () {
     return $http({
       method: 'GET',
-      url: 'https://api.forismatic.com/api/1.0/get?method=getQuote&format=json&lang=en'
+      url: 'https://api.forismatic.com/api/1.0/get?method=getQuote&format=json&lang=en',
+      crossDomain: true
     })
     .then(function (resp) {
       console.log('Quotes resp: ',resp)
