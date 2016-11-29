@@ -5,7 +5,7 @@ angular.module('wisecats.factories', [])
   var getPic = function () {
     return $http({
       method: 'GET',
-      url: "http://thecatapi.com/api/images/get?format=html"
+      url: "//thecatapi.com/api/images/get?format=html"
     })
     .then(function (catHTML) {
       // console.log(catHTML)
@@ -29,7 +29,7 @@ angular.module('wisecats.factories', [])
     // })
     .catch(function (err) {
       console.log(err);
-      return "http://16749-presscdn-0-94.pagely.netdna-cdn.com/wp-content/uploads/2016/09/Hotel-Cat-weight-Stru_Libb-1024x544-670x0-c-default.jpg";
+      return "//16749-presscdn-0-94.pagely.netdna-cdn.com/wp-content/uploads/2016/09/Hotel-Cat-weight-Stru_Libb-1024x544-670x0-c-default.jpg";
     })
   };
 
