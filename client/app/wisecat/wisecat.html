@@ -1,9 +1,10 @@
 <div id='wisecat' ng-click="reloadRoute();">
   <div id="cat" >
-   <img ng-src="{{catPic}}">
+   <img id="catImage" ng-src="{{catPic}}">
   </div>
 
   <div id="wisdom">
     {{ data.quote }}
+    <h2>{{ data.catName }}</h2>
   </div>
 </div>

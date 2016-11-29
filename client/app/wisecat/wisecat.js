@@ -6,11 +6,14 @@ angular.module('wisecats.wisecat', [])
   $scope.catPic = ''
   $scope.getCatPic = function() {
    MakeCats.getPic()
+    .catch(function() {
+      MakeCats.getPic();
+    })
     .then(function(yay) {
       $scope.catPic = yay;
     })
     .catch(function(nooo) {
-      throw Error(nooo);
+      throw Error("nooo");
     });
   }
 
@@ -23,10 +26,20 @@ angular.module('wisecats.wisecat', [])
         console.error(error);
       });
   };
+
+  $scope.getCatName = function () {
+    MakeCats.getCatName(function (name) {
+      $scope.data.catName = name;
+    })
+  }
+
   $scope.reloadRoute = function() {
     $scope.getQuote();
     $scope.getCatPic();
+    $scope.getCatName();
   }
+
   $scope.getQuote();
-    $scope.getCatPic();
+  $scope.getCatPic();
+  $scope.getCatName();
 });
