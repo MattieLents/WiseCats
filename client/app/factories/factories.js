@@ -8,8 +8,6 @@ angular.module('wisecats.factories', [])
       url: "//thecatapi.com/api/images/get?format=html"
     })
     .then(function (catHTML) {
-      // console.log(catHTML)
-      // console.log("CATHTML", catHTML.data.match(/src="(http.*[\.jpg|\.png|\.gif])/i)[1]);
       var imgSource = catHTML.data.match(/src="(http.*[\.jpg|\.png|\.gif])/i)[1];
       return imgSource;
     })
@@ -21,10 +19,7 @@ angular.module('wisecats.factories', [])
       })
     })
     .then(function (res) {
-      console.log('res: ',res);
-      console.log('config: ',res.config.imgSource);
       if (res.status === 200) {
-        console.log('fromgetPic: ',res.config.imgSource)
         return res.config.params.imgSource;
       }
     })
@@ -40,7 +35,6 @@ angular.module('wisecats.factories', [])
       url: '/api/quote'
     })
     .then(function (resp) {
-      // sending back only the quote itself
       return resp.data.quoteText || "ERROR";
     });
   };

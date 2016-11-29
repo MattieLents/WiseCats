@@ -20,7 +20,6 @@ app.get('/api/quote', function(req, res) {
   var apiUrl = 'http://api.forismatic.com/api/1.0/get?method=getQuote&format=json&lang=en';
   request(apiUrl, function (error, response, body) {
 	  if (!error && response.statusCode == 200) {
-	    console.log(body)
 	  	res.send(body || "ERROR QUOTES ARE ONLY SPOKEN");
 	  }
 	})
@@ -28,13 +27,8 @@ app.get('/api/quote', function(req, res) {
 
 app.get('/api/image', function(req, res) {
   var imgSource = req.query.imgSource;
-  console.log('req: ',req.query.imgSource)
-  console.log('imgSource: ',imgSource);
-  // console.log('req: ',req)
-  // console.log('req arrived');
   request(imgSource, function (error, response, body) {
 	  if (!error && response.statusCode == 200) {
-	    console.log(body)
 	  	res.send(response.statusCode);
 	  }
 	})
