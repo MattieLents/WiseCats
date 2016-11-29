@@ -2,31 +2,33 @@ angular.module('wisecats.factories', [])
 
 .factory('MakeCats', function ($http) {
 
-  var getImage = function () {
+  var getPic = function () {
     return $http({
       method: 'GET',
-      url: 'https://thecatapi.com/api/images/get'
+      url: "http://thecatapi.com/api/images/get?format=html"
     })
-    .then(function (resp) {
-      console.log('Images resp: ',resp)
-      return resp.data;
+    .then(function (catHTML) {
+      console.log(catHTML)
+      console.log("CATHTML", catHTML.data.match(/src="(http.*[\.jpg|\.png|\.gif])/i)[1]);
+      var imgSource = catHTML.data.match(/src="(http.*[\.jpg|\.png|\.gif])/i)[1];
+      return imgSource;
     });
   };
 
   var getQuote = function () {
     return $http({
       method: 'GET',
-      url: 'https://api.forismatic.com/api/1.0/get?method=getQuote&format=json&lang=en'
+      url: '/api/quote'
     })
     .then(function (resp) {
-      console.log('Quotes resp: ',resp)
-      return resp.data.quoteText;
+      // sending back only the quote itself
+      return resp.data.quoteText || "ERROR";
     });
   };
 
 
   return {
-    getImage: getImage,
+    getPic: getPic,
     getQuote: getQuote
   };
 })

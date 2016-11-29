@@ -1,6 +1,7 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var path = require('path');
+var request = require('request');
 var app = express();
 
 app.use(bodyParser.json());
@@ -14,3 +15,28 @@ app.listen(port);
 console.log('Server now listening on port ' + port);
 
 module.exports = app;
+
+app.get('/api/quote', function(req, res) {
+  var apiUrl = 'http://api.forismatic.com/api/1.0/get?method=getQuote&format=json&lang=en';
+  request(apiUrl, function (error, response, body) {
+	  if (!error && response.statusCode == 200) {
+	    console.log(body)
+	  	res.send(body || "ERROR QUOTES ARE ONLY SPOKEN");
+	  }
+	})
+})
+
+// app.get('/api/image', function(req, res) {
+//   var apiUrl = "http://thecatapi.com/api/images/get";
+//   request(apiUrl, function (error, response, body) {
+// 	  if (!error && response.statusCode == 200) {
+// 	    console.log(body)
+// 	  	res.send(body);
+// 	  }
+// 	})
+// })
+
+
+
+
+

@@ -3,26 +3,30 @@ angular.module('wisecats.wisecat', [])
 .controller('WiseCatController', function ($scope, MakeCats) {
 
   $scope.data = {};
+  $scope.catPic = ''
+  $scope.getCatPic = function() {
+   MakeCats.getPic()
+    .then(function(yay) {
+      $scope.catPic = yay;
+    })
+    .catch(function(nooo) {
+      throw Error(nooo);
+    });
+  }
 
-  var getCat = function () {
-    MakeCats.getImage()
-      .then(function (image) {
-        $scope.data.image = image;
-      })
-      .catch(function (error) {
-        console.error(error);
-      });
-  };
-  var getQuote = function () {
+  $scope.getQuote = function () {
     MakeCats.getQuote()
-      .then(function (quote) {
-        $scope.data.quote = quote;
+      .then(function (quoteText) {
+        $scope.data.quote = quoteText || "ERROR QUOTES ARE ONLY SPOKEN";
       })
       .catch(function (error) {
         console.error(error);
       });
   };
-
-  getCat();
-  getQuote()
+  $scope.reloadRoute = function() {
+    $scope.getQuote();
+    $scope.getCatPic();
+  }
+  $scope.getQuote();
+    $scope.getCatPic();
 });
