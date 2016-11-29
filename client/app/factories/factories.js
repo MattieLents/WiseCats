@@ -18,14 +18,14 @@ angular.module('wisecats.factories', [])
         params: {imgSource: imgSource}
       })
     })
-    .then(function (res) {
+    .then(function (res) {  
       if (res.status === 200) {
         return res.config.params.imgSource;
       }
     })
     .catch(function (err) {
       console.log(err);
-      return "//16749-presscdn-0-94.pagely.netdna-cdn.com/wp-content/uploads/2016/09/Hotel-Cat-weight-Stru_Libb-1024x544-670x0-c-default.jpg";
+      return "https://media1.popsugar-assets.com/files/thumbor/l3tGpIatkHybxJGKNsK1BDe_WJs/fit-in/1024x1024/filters:format_auto-!!-:strip_icc-!!-/2014/08/08/878/n/1922507/9ed5cdef48c5ef69_thumb_temp_image32304521407524949/i/Funny-Cat-GIFs.jpg";
     })
   };
 
